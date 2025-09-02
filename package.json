@@ -1,0 +1,25 @@
+{
+  "name": "backend_cursos_online",
+  "version": "1.0.0",
+  "description": "Backend para sistema de Cursos Online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pattyhira/Backend_Cursos_Online.git"
+  },
+  "keywords": [
+    "backend",
+    "node",
+    "javascript",
+    "mysql"
+  ],
+  "author": "Patricia Aline Hiraiwa Takata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pattyhira/Backend_Cursos_Online/issues"
+  },
+  "homepage": "https://github.com/pattyhira/Backend_Cursos_Online#readme"
+}
