@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/pattyhira/Backend_Cursos_Online/issues"
   },
-  "homepage": "https://github.com/pattyhira/Backend_Cursos_Online#readme"
+  "homepage": "https://github.com/pattyhira/Backend_Cursos_Online#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.4"
+  },
+  "devDependencies": {}
 }
