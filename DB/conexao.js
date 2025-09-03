@@ -10,11 +10,18 @@ export default async function conectar() {
         global.poolConexoes = mysql.createPool({
 
             host: 'localhost', 
+            port: 3306,
             user: 'root', 
             database: 'backend',
             waitForConnections: true, 
-            connectionLimit: 10,     
-            queueLimit: 0
-        })
+            connectionLimit: 10,    
+            maxIdle: 10,
+            idleTimeout: 60000, 
+            queueLimit: 0,
+            enableKeepAlive: true,
+            keepAliveInitialDelay: 0,
+        });
+        
+        return await global.poolConexoes.getConnection();
     }
 }

@@ -1,29 +1,67 @@
-import Curso from "..Models/curso.js";
+import Curso from "../Models/curso.js";
+
+import conectar from "./conexao.js";
 
 export default class CursoDAO {
 
     async gravar(curso){
         if (curso instanceof Curso){
             const conexao = await conectar();
-            const sql = "INSERT INTO curso (id, nomeCurso, inícioCurso, duração, preço, vagas, nível) VALUES (?,?,?,?,?,?,?)";
-            const parametros [
+            const sql = "INSERT INTO cursos(id, nomeCurso, inicioCurso, duracao, preco, vagas, nivel) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            const parametros = [
                 curso.id,
                 curso.nomeCurso,
-                curso.inícioCurso,
-                curso.duração,
+                curso.inicioCurso,
+                curso.duracao,
                 curso.preço,
                 curso.vagas,
-                curso.nível
+                curso.nivel
             ];
 
             await conexao.execute(sql, parametros);    
-
+            conexao.release();
         }
     }
 
-    async alterar(curso){}
+    async alterar(curso){
+        if (curso instanceof Curso){
+            const conexao = await conectar();
+            const sql = "UPDATE cursos SET nomeCurso = ?, inicioCurso = ?, duracao = ?, preco = ?, vagas = ?, nivel = ? WHERE id = ?";
+            const parametros = [
+                curso.nomeCurso,
+                curso.inicioCurso,
+                curso.duracao,
+                curso.preço,
+                curso.vagas,
+                curso.nivel,
+                curso.id,
+            ];
+            await conexao.execute(sql, parametros);
+            await conexao.release();
+        }
+    }
 
-    async excluir(curso){}
+    async excluir(curso){
+        if (curso instanceof Curso){
+            const conexao = await conectar();
+            const sql = "DELETE FROM cursos WHERE id = ?";
+            const parametros = [curso.id];
 
-    async consultar(curso){}
+            await conexao.execute(sql, parametros);
+            await conexao.release();
+        }
+    }
+
+    async consultar(){
+        const conexao = await conectar();
+        const sql = "SELECT * FROM cursos INNER JOIN nomes ON cursos.id = nomes.curso_id";
+        const [registros] = await conexao.query(sql);
+        await conexao.release();
+        
+        for (const registro of registros){
+            const curso = new Curso(registro.id, registro.nomeCurso, registro.inicioCurso, registro.duracao, registro.preco, registro.vagas, registro.nivel);
+        
+            listaCursos.push(curso);
+        }
+    }
 }

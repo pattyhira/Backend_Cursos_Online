@@ -4,16 +4,16 @@ export default class Curso {
 
     #id;
     #nomeCurso;
-    #inícioCurso;
+    #inicioCurso;
     #duração;
     #preço;
     #vagas;
     #nível;
 
-    constructor(id = "", nomeCurso = "", inícioCurso = "", duração = "", preço = "", vagas = "", nível = "") {
+    constructor(id = "", nomeCurso = "", inicioCurso = "", duração = "", preço = "", vagas = "", nível = "") {
         this.#id = id;
         this.#nomeCurso = nomeCurso
-        this.#inícioCurso = inícioCurso
+        this.#inicioCurso = inicioCurso
         this.#duração = duração
         this.#preço = preço
         this.#vagas = vagas
@@ -37,11 +37,11 @@ export default class Curso {
     }
 
     get inícioCurso() {
-        return this.#inícioCurso
+        return this.#inicioCurso
     }
 
-    set inícioCurso(inícioCurso) {
-        this.#inícioCurso = inícioCurso
+    set inícioCurso(inicioCurso) {
+        this.#inicioCurso = inicioCurso
     }
 
     get duração() {
@@ -80,7 +80,7 @@ export default class Curso {
         return `
             id: ${this.#id}\n
             Nome do Curso: ${this.#nomeCurso}\n
-            Início do Curso: ${this.#inícioCurso}\n
+            Início do Curso: ${this.#inicioCurso}\n
             Duração: ${this.#duração}\n
             Preço: ${this.#preço}\n
             Vagas: ${this.#vagas}\n
@@ -92,7 +92,7 @@ export default class Curso {
         return {
             id: this.#id,
             nomeCurso: this.#nomeCurso,
-            inícioCurso: this.#inícioCurso,
+            inícioCurso: this.#inicioCurso,
             duração: this.#duração,
             preço: this.#preço,
             vagas: this.#vagas,
