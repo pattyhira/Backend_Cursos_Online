@@ -54,14 +54,16 @@ export default class CursoDAO {
 
     async consultar(){
         const conexao = await conectar();
-        const sql = "SELECT * FROM cursos INNER JOIN nomeCurso = ?, inicioCurso = ?, duracao = ?, preco = ?, vagas = ?, nivel = ? ON cursos.id = nomes.curso_id";
+        const sql = "SELECT id, nomeCurso, inicioCurso, duracao, preco, vagas, nivel FROM cursos";
         const [registros] = await conexao.query(sql);
         await conexao.release();
+        const listaCursos = [];
         
-        for (const registro of registros){
-            const curso = new Curso(registro.id, registro.nomeCurso, registro.inicioCurso, registro.duracao, registro.preco, registro.vagas, registro.nivel);
-        
+        for (const r of registros){
+             const curso = new Curso(r.id, r.nomeCurso, r.inicioCurso, r.duracao, r.preco, r.vagas, r.nivel);
+
             listaCursos.push(curso);
         }
+        return listaCursos;    
     }
 }

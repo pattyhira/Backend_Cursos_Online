@@ -1,8 +1,7 @@
 import Curso from "./Models/curso.js"
 
-
-const curso = new Curso ("1", "Node.js para Iniciantes", "2025-09-01", "8 semanas", 499.9, 30, "Iniciante");
-await curso.gravar();
+const curso = new Curso ("2", "HTML", "2025-09-25", "7 semanas", 59.9, 25, "Iniciante");
+//await curso.gravar();
 
 //console.log("Curso gravado com sucesso!");
 //console.log("O curso recebeu o seguinte id:" + curso.id);
@@ -14,3 +13,6 @@ await curso.gravar();
 //curso.id = "1";
 //await curso.excluir();
 //console.log("Curso excluído com sucesso!");
+
+
+//SELECT id, nomeCurso, inicioCurso, duracao, preco, vagas, nivel FROM cursos;
