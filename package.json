@@ -1,6 +1,7 @@
 {
   "name": "backend_cursos_online",
   "version": "1.0.0",
+  "type": "module",
   "description": "Backend para sistema de Cursos Online",
   "main": "index.js",
   "scripts": {

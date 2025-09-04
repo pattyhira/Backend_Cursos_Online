@@ -11,7 +11,7 @@ export default async function conectar() {
 
             host: 'localhost', 
             port: 3306,
-            user: 'root', 
+            user: 'root',
             database: 'backend',
             waitForConnections: true, 
             connectionLimit: 10,    

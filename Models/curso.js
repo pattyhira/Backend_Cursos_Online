@@ -5,19 +5,19 @@ export default class Curso {
     #id;
     #nomeCurso;
     #inicioCurso;
-    #duração;
-    #preço;
+    #duracao;
+    #preco;
     #vagas;
-    #nível;
+    #nivel;
 
-    constructor(id = "", nomeCurso = "", inicioCurso = "", duração = "", preço = "", vagas = "", nível = "") {
+    constructor(id = "", nomeCurso = "", inicioCurso = "", duracao = "", preco = "", vagas = "", nivel = "") {
         this.#id = id;
         this.#nomeCurso = nomeCurso
         this.#inicioCurso = inicioCurso
-        this.#duração = duração
-        this.#preço = preço
+        this.#duracao = duracao
+        this.#preco = preco
         this.#vagas = vagas
-        this.nível = nível
+        this.#nivel = nivel
     }
 
     get id() {
@@ -28,7 +28,7 @@ export default class Curso {
         this.#id = id
     }
 
-    get id() {
+    get nomeCurso() {
         return this.#nomeCurso
     }
 
@@ -36,28 +36,28 @@ export default class Curso {
         this.#nomeCurso = nomeCurso
     }
 
-    get inícioCurso() {
+    get inicioCurso() {
         return this.#inicioCurso
     }
 
-    set inícioCurso(inicioCurso) {
+    set inicioCurso(inicioCurso) {
         this.#inicioCurso = inicioCurso
     }
 
-    get duração() {
-        return this.#duração
+    get duracao() {
+        return this.#duracao
     }
 
-    set duração(duração) {
-        this.#duração = duração
+    set duracao(duracao) {
+        this.#duracao = duracao
     }
 
-    get preço() {
-        return this.#preço
+    get preco() {
+        return this.#preco
     }
 
-    set preço(preço) {
-        this.#preço = preço
+    set preco(preco) {
+        this.#preco = preco
     }
 
     get vagas() {
@@ -68,12 +68,12 @@ export default class Curso {
         this.#vagas = vagas
     }
 
-    get nível() {
-        return this.#nível
+    get nivel() {
+        return this.#nivel
     }
 
-    set nível(nível) {
-        this.#nível = nível
+    set nivel(nivel) {
+        this.#nivel = nivel
     }
 
     toString() {
@@ -81,10 +81,10 @@ export default class Curso {
             id: ${this.#id}\n
             Nome do Curso: ${this.#nomeCurso}\n
             Início do Curso: ${this.#inicioCurso}\n
-            Duração: ${this.#duração}\n
-            Preço: ${this.#preço}\n
+            Duração: ${this.#duracao}\n
+            Preço: ${this.#preco}\n
             Vagas: ${this.#vagas}\n
-            Nível: ${this.#nível}\n
+            Nível: ${this.#nivel}\n
             `;
         }
 
@@ -92,11 +92,11 @@ export default class Curso {
         return {
             id: this.#id,
             nomeCurso: this.#nomeCurso,
-            inícioCurso: this.#inicioCurso,
-            duração: this.#duração,
-            preço: this.#preço,
+            inicioCurso: this.#inicioCurso,
+            duracao: this.#duracao,
+            preco: this.#preco,
             vagas: this.#vagas,
-            nível: this.#nível
+            nivel: this.#nivel
         }
     }
 
@@ -112,7 +112,7 @@ export default class Curso {
 
     async excluir() {
         const cursoDAO = new CursoDAO()
-        await cursoDAO.exclui(this);
+        await cursoDAO.excluir(this);
     }
 
     async consultar() {

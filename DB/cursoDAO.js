@@ -13,7 +13,7 @@ export default class CursoDAO {
                 curso.nomeCurso,
                 curso.inicioCurso,
                 curso.duracao,
-                curso.preço,
+                curso.preco,
                 curso.vagas,
                 curso.nivel
             ];
@@ -31,7 +31,7 @@ export default class CursoDAO {
                 curso.nomeCurso,
                 curso.inicioCurso,
                 curso.duracao,
-                curso.preço,
+                curso.preco,
                 curso.vagas,
                 curso.nivel,
                 curso.id,
@@ -54,7 +54,7 @@ export default class CursoDAO {
 
     async consultar(){
         const conexao = await conectar();
-        const sql = "SELECT * FROM cursos INNER JOIN nomes ON cursos.id = nomes.curso_id";
+        const sql = "SELECT * FROM cursos INNER JOIN nomeCurso = ?, inicioCurso = ?, duracao = ?, preco = ?, vagas = ?, nivel = ? ON cursos.id = nomes.curso_id";
         const [registros] = await conexao.query(sql);
         await conexao.release();
         
