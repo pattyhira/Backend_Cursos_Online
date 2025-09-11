@@ -117,6 +117,6 @@ export default class Curso {
 
     async consultar() {
         const cursoDAO = new CursoDAO()
-        return await cursoDAO.consultar(this);
+        return await cursoDAO.consultar();
     }
 }

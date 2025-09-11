@@ -45,7 +45,7 @@ export default class CursoDAO {
         if (curso instanceof Curso){
             const conexao = await conectar();
             const sql = "DELETE FROM cursos WHERE id = ?";
-            const parametros = [curso.id];
+            const parametros = [curso.id, curso.nomeCurso];
 
             await conexao.execute(sql, parametros);
             await conexao.release();
